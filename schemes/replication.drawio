@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.2.9 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.2.9">
+  <diagram name="Page-1" id="-H_mtQnk-PTXWXPvYvuk">
+    <mxGraphModel dx="2066" dy="1128" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- pymongo-api -->
+        <mxCell id="app1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="pymongo-api&lt;div&gt;port 8080&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="400" as="geometry" />
+        </mxCell>
+
+        <!-- mongos_router -->
+        <mxCell id="router1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="mongos_router&lt;div&gt;mongos&lt;/div&gt;&lt;div&gt;port 27020&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="310" y="400" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: app -> router -->
+        <mxCell id="e_app_router" edge="1" parent="1" source="app1" target="router1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===== Config Server Replica Set group ===== -->
+        <mxCell id="grp_config" parent="1" style="swimlane;startSize=25;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="replSet: config_server" vertex="1">
+          <mxGeometry height="170" width="480" x="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cfg1" parent="grp_config" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="configSrv1&lt;div&gt;&lt;b&gt;PRIMARY&lt;/b&gt;&lt;/div&gt;&lt;div&gt;port 27017&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="cfg2" parent="grp_config" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="configSrv2&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27017&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="180" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="cfg3" parent="grp_config" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="configSrv3&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27017&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="340" y="35" as="geometry" />
+        </mxCell>
+
+        <!-- ===== Shard 1 Replica Set group ===== -->
+        <mxCell id="grp_shard1" parent="1" style="swimlane;startSize=25;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="replSet: shard1" vertex="1">
+          <mxGeometry height="170" width="480" x="560" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_1" parent="grp_shard1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard1-1&lt;div&gt;&lt;b&gt;PRIMARY&lt;/b&gt;&lt;/div&gt;&lt;div&gt;port 27018&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_2" parent="grp_shard1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard1-2&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27018&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="180" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_3" parent="grp_shard1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard1-3&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27018&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="340" y="35" as="geometry" />
+        </mxCell>
+
+        <!-- ===== Shard 2 Replica Set group ===== -->
+        <mxCell id="grp_shard2" parent="1" style="swimlane;startSize=25;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="replSet: shard2" vertex="1">
+          <mxGeometry height="170" width="480" x="560" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_1" parent="grp_shard2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard2-1&lt;div&gt;&lt;b&gt;PRIMARY&lt;/b&gt;&lt;/div&gt;&lt;div&gt;port 27019&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_2" parent="grp_shard2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard2-2&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27019&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="180" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_3" parent="grp_shard2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard2-3&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27019&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="340" y="35" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows: router -> groups -->
+        <mxCell id="e_router_config" edge="1" parent="1" source="router1" target="grp_config" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_router_shard1" edge="1" parent="1" source="router1" target="grp_shard1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_router_shard2" edge="1" parent="1" source="router1" target="grp_shard2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

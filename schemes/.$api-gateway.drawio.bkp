@@ -1,0 +1,189 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.2.9 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.2.9">
+  <diagram name="Page-1" id="-H_mtQnk-PTXWXPvYvuk">
+    <mxGraphModel dx="2813" dy="986" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nginx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" value="nginx&lt;div&gt;Reverse Proxy&lt;/div&gt;&lt;div&gt;port 80&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="-280" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" value="API Gateway&lt;div&gt;(Apache APISIX)&lt;/div&gt;&lt;div&gt;port 9080&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="-60" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="e_nginx_gw" edge="1" parent="1" source="nginx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="consul" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e6ff;strokeColor=#9673a6;" value="Consul&lt;div&gt;Service Discovery&lt;/div&gt;&lt;div&gt;port 8500&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="-60" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="app1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="pymongo-api-1&lt;div&gt;port 8080&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="230" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="app2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="pymongo-api-2&lt;div&gt;port 8080&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="230" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="app3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="pymongo-api-3&lt;div&gt;port 8080&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="230" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="redis1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="redis&lt;div&gt;Redis Cache&lt;/div&gt;&lt;div&gt;port 6379&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="330" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="router1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="mongos_router&lt;div&gt;mongos&lt;/div&gt;&lt;div&gt;port 27020&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="430" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gw_app1" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="app1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="410" />
+              <mxPoint x="200" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_gw_app2" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="app2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="410" />
+              <mxPoint x="200" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_gw_app3" edge="1" parent="1" source="gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="app3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="410" />
+              <mxPoint x="200" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_consul_gw" edge="1" parent="1" source="consul" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Knt1DBigB7qbtTZNMajn-2" connectable="0" parent="e_consul_gw" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Получение списка&lt;div&gt;сервисов&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.0476" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_consul_app1" edge="1" parent="1" source="app1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="consul">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="360" />
+              <mxPoint x="370" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_consul_app2" edge="1" parent="1" source="app2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="consul">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="295" y="490" />
+              <mxPoint x="370" y="490" />
+              <mxPoint x="370" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_consul_app3" edge="1" parent="1" source="app3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="consul">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="540" />
+              <mxPoint x="370" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Knt1DBigB7qbtTZNMajn-3" connectable="0" parent="e_consul_app3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Text" vertex="1">
+          <mxGeometry relative="1" x="0.3318" y="1" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_app1_redis" edge="1" parent="1" source="app1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="redis1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_app2_redis" edge="1" parent="1" source="app2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="redis1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_app3_redis" edge="1" parent="1" source="app3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="redis1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Knt1DBigB7qbtTZNMajn-1" connectable="0" parent="e_app3_redis" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Кэширование" vertex="1">
+          <mxGeometry relative="1" x="0.5641" y="-1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_app1_router" edge="1" parent="1" source="app1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="router1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="360" />
+              <mxPoint x="390" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_app2_router" edge="1" parent="1" source="app2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="router1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="450" />
+              <mxPoint x="390" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_app3_router" edge="1" parent="1" source="app3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="router1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="grp_config" parent="1" style="swimlane;startSize=25;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="replSet: config_server" vertex="1">
+          <mxGeometry height="170" width="480" x="640" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cfg1" parent="grp_config" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="configSrv1&lt;div&gt;&lt;b&gt;PRIMARY&lt;/b&gt;&lt;/div&gt;&lt;div&gt;port 27017&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="cfg2" parent="grp_config" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="configSrv2&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27017&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="180" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="cfg3" parent="grp_config" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="configSrv3&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27017&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="340" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="grp_shard1" parent="1" style="swimlane;startSize=25;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="replSet: shard1" vertex="1">
+          <mxGeometry height="170" width="480" x="640" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_1" parent="grp_shard1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard1-1&lt;div&gt;&lt;b&gt;PRIMARY&lt;/b&gt;&lt;/div&gt;&lt;div&gt;port 27018&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_2" parent="grp_shard1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard1-2&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27018&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="180" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_3" parent="grp_shard1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard1-3&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27018&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="340" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="grp_shard2" parent="1" style="swimlane;startSize=25;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="replSet: shard2" vertex="1">
+          <mxGeometry height="170" width="480" x="640" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_1" parent="grp_shard2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard2-1&lt;div&gt;&lt;b&gt;PRIMARY&lt;/b&gt;&lt;/div&gt;&lt;div&gt;port 27019&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_2" parent="grp_shard2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard2-2&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27019&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="180" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_3" parent="grp_shard2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard2-3&lt;div&gt;SECONDARY&lt;/div&gt;&lt;div&gt;port 27019&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="340" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="e_router_config" edge="1" parent="1" source="router1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="grp_config">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_router_shard1" edge="1" parent="1" source="router1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="grp_shard1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_router_shard2" edge="1" parent="1" source="router1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="grp_shard2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

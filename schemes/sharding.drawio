@@ -1,0 +1,37 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.2.9 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.2.9">
+  <diagram name="Page-1" id="-H_mtQnk-PTXWXPvYvuk">
+    <mxGraphModel dx="2066" dy="1128" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zA23MoTUsTF4_91t8viU-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="pymongo-api&lt;div&gt;port 8080&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="zA23MoTUsTF4_91t8viU-4" edge="1" parent="1" source="zA23MoTUsTF4_91t8viU-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="zj4bUja6uQZ4LZXfkUpe-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zj4bUja6uQZ4LZXfkUpe-8" edge="1" parent="1" source="zj4bUja6uQZ4LZXfkUpe-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="zj4bUja6uQZ4LZXfkUpe-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zj4bUja6uQZ4LZXfkUpe-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="mongos_router&lt;div&gt;mongos&lt;/div&gt;&lt;div&gt;port 27020&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="480" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="zj4bUja6uQZ4LZXfkUpe-3" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard1&lt;div&gt;shardsvr&lt;/div&gt;&lt;div&gt;replSet: shard1&lt;/div&gt;&lt;div&gt;port 27018&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="130" x="760" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="zj4bUja6uQZ4LZXfkUpe-4" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="shard2&lt;div&gt;shardsvr&lt;/div&gt;&lt;div&gt;replSet: shard2&lt;/div&gt;&lt;div&gt;port 27019&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="130" x="760" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="zj4bUja6uQZ4LZXfkUpe-6" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="configSrv&lt;div&gt;config server&lt;/div&gt;&lt;div&gt;replSet: config_server&lt;/div&gt;&lt;div&gt;port 27017&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="130" x="760" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="zj4bUja6uQZ4LZXfkUpe-7" edge="1" parent="1" source="zj4bUja6uQZ4LZXfkUpe-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="zj4bUja6uQZ4LZXfkUpe-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zj4bUja6uQZ4LZXfkUpe-9" edge="1" parent="1" source="zj4bUja6uQZ4LZXfkUpe-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="zj4bUja6uQZ4LZXfkUpe-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
